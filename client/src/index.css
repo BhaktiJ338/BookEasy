@@ -1,0 +1,47 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  font-family: "Circular", -apple-system, "BlinkMacSystemFont", "Roboto",
+    Helvetica "Neue", sans-serif;
+  font-family: "Circular", -apple-system, "BlinkMacSystemFont", "Roboto",
+    "Helvetica Neue", sans-serif;
+    @apply bg-white
+}
+
+input[type="text"],
+input[type="password"],
+input[type="email"],
+input[type="number"],
+input[type="tel"],
+PhoneInput,
+textarea {
+  @apply p-1 w-full border border-gray-300 px-2 mt-2 mb-2 flex items-center rounded-lg;
+}
+
+textarea {
+  height: 150px;
+}
+
+
+button.primary {
+  @apply w-full bg-primary hover:bg-primary_dark text-white rounded-lg px-4 py-2;
+
+  background-image: linear-gradient(
+    to right,
+    #fd365b 0%,
+    #dd2476 51%,
+    #fd365b 100%
+  );
+  text-transform: uppercase;
+  transition: 0.5s;
+  background-size: 200% auto;
+  box-shadow: 0 0 20px #eee;
+}
+
+button.primary:hover {
+  background-position: right center; /* change the direction of the change here */
+  color: #fff;
+  text-decoration: none;
+}
