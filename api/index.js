@@ -62,7 +62,7 @@ function getUserDataUsingToken(req){
     })
 }
 
-app.post('/register', async(req,res)=>{
+app.post('/api/register', async(req,res)=>{
     mongoose.connect(process.env.MONGO_URL,  {useNewUrlParser:true});
     const {name, email, password} = req.body
     try{
@@ -79,7 +79,7 @@ app.post('/register', async(req,res)=>{
    
 });
 
-app.post('/login', async (req, res)=>{
+app.post('/api/login', async (req, res)=>{
     mongoose.connect(process.env.MONGO_URL,  {useNewUrlParser:true});
     const {email, password} = req.body
     const foundUser = await User.findOne({email})
@@ -105,7 +105,7 @@ app.post('/login', async (req, res)=>{
     }
 });
 
-app.get('/profile', async(req, res)=>{
+app.get('/api/profile', async(req, res)=>{
     mongoose.connect(process.env.MONGO_URL,  {useNewUrlParser:true});
     const userData = await getUserDataUsingToken(req);
     if(!userData) res.json(null); 
@@ -113,11 +113,11 @@ app.get('/profile', async(req, res)=>{
     res.json({name, email, _id});
 });
 
-app.post('/logout', (req,res)=>{
+app.post('/api/logout', (req,res)=>{
     res.cookie('token', '').json(true);
 })
 
-app.post('/uploadByLink', async(req,res)=>{
+app.post('/api/uploadByLink', async(req,res)=>{
     const {link} = req.body;
     const imageName = 'photo' + Date.now() + '.jpg'; 
     await download.image({
@@ -129,7 +129,7 @@ app.post('/uploadByLink', async(req,res)=>{
 })
 
 const photosMiddleware = multer({dest:'/tmp'})
-app.post('/upload', photosMiddleware.array('photos', 100), async(req, res)=>{
+app.post('/api/upload', photosMiddleware.array('photos', 100), async(req, res)=>{
     mongoose.connect(process.env.MONGO_URL,  {useNewUrlParser:true});
     const uploadedFiles = [];
     for(let i=0; i<req.files.length; i++){
@@ -140,7 +140,7 @@ app.post('/upload', photosMiddleware.array('photos', 100), async(req, res)=>{
     res.json(uploadedFiles);
 })
 
-app.route('/places')
+app.route('/api/places')
 .post(async(req, res)=>{
     mongoose.connect(process.env.MONGO_URL,  {useNewUrlParser:true});
     const userData = await getUserDataUsingToken(req);
@@ -186,7 +186,7 @@ app.route('/places')
     res.json(await Place.find());
 });
 
-app.get('/user-places', async(req, res)=>{
+app.get('/api/user-places', async(req, res)=>{
     mongoose.connect(process.env.MONGO_URL,  {useNewUrlParser:true});
     const userData = await getUserDataUsingToken(req);
     if(!userData) res.json(null)
@@ -194,13 +194,13 @@ app.get('/user-places', async(req, res)=>{
     res.json(await Place.find({owner:id}))
 })
 
-app.get('/places/:id', async(req, res)=>{
+app.get('/api/places/:id', async(req, res)=>{
     mongoose.connect(process.env.MONGO_URL,  {useNewUrlParser:true});
     const {id} = req.params;
     res.json(await Place.findById(id))
 })
 
-app.route('/bookings')
+app.route('/api/bookings')
 .post(async(req,res)=>{
     mongoose.connect(process.env.MONGO_URL,  {useNewUrlParser:true});
     const userData = await getUserDataUsingToken(req);
