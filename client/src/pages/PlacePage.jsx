@@ -57,7 +57,7 @@ const PlacePage = () => {
         <div>
           {/* description  */}
           <div className="text-lg my-4">
-            <h2 className="text-2xl font-semibold ">About this place</h2>
+            <h2 className="text-base md:text-2xl font-semibold ">About this place</h2>
             {place.description}
           </div>
           <h2 className="text-2xl font-semibold lg:mt-4">Things to know</h2>

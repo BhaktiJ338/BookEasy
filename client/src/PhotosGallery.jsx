@@ -44,16 +44,16 @@ const PhotosGallery = ({place})=>{
       }
     return(
         <div className="mt-4 relative bg-white">
-        <div onClick={() => setShowAllPhotos(true)} className="grid gap-1 md:gap-2 grid-cols-[2fr_1fr_1fr] rounded-2xl overflow-hidden bg-gray">
-          <div>
+        <div onClick={() => setShowAllPhotos(true)} className="grid gap-1 md:gap-2 grid-rows-[2fr_1fr_1fr] md:grid-rows-none max-h-fit md:grid-cols-[2fr_1fr_1fr] rounded-2xl overflow-hidden bg-gray">
+          <div className="grid-cols-1 md:grid-cols-none">
             <PlaceImg place={place} className={"cursor-pointer h-full object-cover aspect-square"} index={0}/>
           </div>
-          <div className="grid">
-            <PlaceImg  place={place} className={"cursor-pointer object-cover aspect-square mb-1 md:mb-2"} index={1}/>
+          <div className="grid grid-cols-2 gap-1 md:grid-cols-none">
+            <PlaceImg  place={place} className={"cursor-pointer object-cover aspect-square md:mb-1"} index={1}/>
             <PlaceImg place={place} className={"cursor-pointer object-cover aspect-square "} index={2}/>
           </div>
-          <div className="grid">
-            <PlaceImg place={place} className={"cursor-pointer object-cover aspect-square mb-1 md:mb-2"} index={3}/>
+          <div className="grid grid-cols-2 gap-1 md:grid-cols-none">
+            <PlaceImg place={place} className={"cursor-pointer object-cover aspect-square md:mb-1"} index={3}/>
             <PlaceImg place={place} className={"cursor-pointer object-cover aspect-square"} index={4}/>
           </div>
         </div>
