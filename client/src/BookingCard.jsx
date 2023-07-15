@@ -62,6 +62,7 @@ const BookingCard = ({ place }) => {
                 onChange={(e) => setCheckIn(e.target.value)}
                 name=""
                 id=""
+                className=""
               />
             </div>
             <div className="border-l border-gray-400 p-2 text-sm font-medium">

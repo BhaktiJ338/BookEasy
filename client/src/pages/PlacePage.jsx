@@ -15,9 +15,8 @@ const PlacePage = () => {
     });
   }, [id]);
 
-  if (!place) return "No such place";
-
-
+  if (!place) return <div className="p-4 italic text-2xl">Loading...</div>
+  
   return (
     <div className="mt-2 lg:mt-6 lg:w-2/3 mx-auto">
       <h2 className="text-2xl font-semibold my-2">{place.title}</h2>
@@ -130,7 +129,7 @@ const PlacePage = () => {
             </div>
           </div>
           <h2 className="text-2xl font-semibold mt-4">Perks</h2>
-          <div className="mt-2">
+          <div className="px-2 mt-2">
             {place.perks.map((perk) => (
               <li className="list-decimal" key={perk}>{perk}</li>
             ))}

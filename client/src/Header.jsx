@@ -6,11 +6,11 @@ import { UserContext } from "./UserContext";
 const Header = () => {
   const { user } = useContext(UserContext);
   return (
-    <header className="flex items-center justify-between py-3 border-b-2 px-10">
+    <header className="w-full bg-white flex items-center justify-between md:py-3 border-b-2 px-4 md:px-10">
       {/* logo  */}
       <Link to={"/"} className="flex items-center gap-1">
         <svg
-          className="w-10 h-10 fill-primary"
+          className="w-8 h-8 md:w-10 md:h-10 fill-primary"
           xmlns="http://www.w3.org/2000/svg"
           height="1em"
           viewBox="0 0 448 512"
@@ -48,7 +48,7 @@ const Header = () => {
       {/* header end  */}
       <Link
         to={user ? "/account" : "/login"}
-        className="flex items-center border border-gray-400 px-4 py-2 rounded-full gap-2"
+        className="flex items-center border border-gray-400 px-2 md:px-4 md:py-2 rounded-full gap-2"
       >
         {/* hamburger icon  */}
         <svg

@@ -8,7 +8,7 @@ const PhotosGallery = ({place})=>{
 
     if (showAllPhotos) {
         return (
-          <div className="absolute bg-white inset-0 min-h-max">
+          <div className="absolute inset-0 bg-white inset-0 min-h-max">
             <div className="p-8 grid gap-4">
               <button
                 onClick={() => setShowAllPhotos(false)}

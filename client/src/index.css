@@ -20,6 +20,10 @@ textarea {
   @apply p-1 w-full border border-gray-300 px-2 mt-2 mb-2 flex items-center rounded-lg;
 }
 
+input[type="date"]{
+  @apply w-28
+}
+
 textarea {
   height: 150px;
 }

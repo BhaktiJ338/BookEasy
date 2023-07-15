@@ -4,8 +4,7 @@ const Layout = ()=>{
     return(
         <>
         <Header/>
-        <div className="py-4 px-8 flex flex-col min-h-screen">
-            
+        <div className="px-6 md:py-4 md:px-8 flex flex-col min-h-screen">
             <Outlet />
         </div>
         </>

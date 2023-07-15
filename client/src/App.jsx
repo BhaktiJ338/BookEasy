@@ -18,6 +18,7 @@ axios.defaults.withCredentials = true;
 
 function App() {
   return (
+    <div className="overflow-x-hidden">
     <UserContextProvider>
       <Routes>
         <Route path="/" element={<Layout />}>
@@ -34,6 +35,7 @@ function App() {
         </Route>
       </Routes>
     </UserContextProvider>
+    </div>
   );
 }
 
