@@ -48,7 +48,7 @@ const Header = () => {
       {/* header end  */}
       <Link
         to={user ? "/account" : "/login"}
-        className="flex items-center border border-gray-400 px-2 md:px-4 md:py-2 rounded-full gap-2"
+        className="flex items-center border border-gray-400 py-1 px-2 md:px-4 md:py-2 rounded-full gap-2"
       >
         {/* hamburger icon  */}
         <svg
