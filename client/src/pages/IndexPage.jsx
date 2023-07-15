@@ -15,6 +15,11 @@ const IndexPage = () => {
       ]);
     });
   }, []);
+
+  if(!places) {
+    return <div className="p-4 italic text-2xl">Loading...</div>
+  }
+
   return (
     <div className="lg:mx-20 mt-4 lg:mt-8 grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-x-6 gap-y-10">
       {/* display all places */}
